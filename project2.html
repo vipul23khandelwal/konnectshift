@@ -54,9 +54,9 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   
 
-    <input type="text" id="entername"><br>
+    <!-- <input type="text" id="entername"><br>
     <button type="button" onclick="showdata()" value="submit data">
-submit</button>
+submit</button> -->
 <br><br>
 
 <label id="showname"></label>
@@ -67,6 +67,7 @@ submit</button>
 <br>
 
 <button id="change-css">Add classes to first div element</button>
+<button id="back">back to original</button>
 <!-- modal section -->
 
 
@@ -77,9 +78,13 @@ submit</button>
           <div class="w3-modal-content">
             <div class="w3-container">
               <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-           
-              <p>this is modal</p>
-          
+              <label>your name:</label>
+              <input type="text" id="entername"><br>
+              <br> 
+              <label>your age:</label>
+              <input type="number" id="enterage"><br><br>
+    <button type="button" onclick="showdata()"  value="submit data">
+submit</button>
             </div>
           </div>
         </div>
@@ -91,6 +96,10 @@ $("#myBtn").on("click", function() {
   $("#modalContainer").show();
 });
 
+$(".close").on("click", function(){
+  $("#")
+})
+
 $(".close").on("click", function() {
   $("#modalContainer").hide();
 });
@@ -99,8 +108,9 @@ $(".close").on("click", function() {
 
    function showdata(){
        var fname = $("#entername").val()
+      var age = $("#enterage").val()
+        $("#showname").html("my name is " +fname + "and age is " +age);
 
-        $("#showname").html("my name is " +fname);
 
    }
 
@@ -108,6 +118,10 @@ $(".close").on("click", function() {
         $(document).ready(function(){
           $("#change-css").click(function(){
             $("#div1").addClass("important blue");
+          });
+
+          $("#back").click(function(){
+            $("#div1").removeClass("important blue");
           });
         });
    

@@ -34,6 +34,10 @@ if ( username == "admin") {
 }
 //console.log(username);
 //console.log(password);
+fetch("https://devapi.hauskey.com/public/city/nameList")
+.then(res => res.json())//response type
+    .then(data => console.log(data)); //log the data;
+
 </script>
 <style>
   @import url(http://fonts.googleapis.com/css?family=Raleway);

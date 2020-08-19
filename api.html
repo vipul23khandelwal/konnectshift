@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!--     
+  <div>
+    <ul id="template"></ul>
+</div>
+<button onclick="fetchData()">fetch data</button> -->
+
+
+  <table class="tabel">
+    <tr>
+      <th>id</th>
+      <th>cityName</th>
+    </tr>
+    <tbody id="mytable">
+<td id="idS"></td>
+<td id="cityN"></td>
+    </tbody>
+  </table>
+
+
+<script>
+
+
+
+// fetch('https://devapi.hauskey.com/public/city/nameList')
+//   .then(
+//     function(response) {
+
+//       // Examine the text in the response
+//       response.json().then(function(data) {
+//         var list = data.data.cityList;
+//         let table = document.getElementById("mytable");
+//         var html = ""
+//         for(var i = 0; i<list.length; i++){
+//       html +='<tr>';
+//       html +='<td>'+ list[i].id + '</td>';
+//       html +='<td>'+ list[i].cityName + '</td>';
+//       html +='</tr>';
+//   // table.innerHTML += html;
+//        // console.log(data);
+//       }
+//       table.innerHTML += html;
+//     });
+//     })
+//   .catch(function(err) {
+//     console.log('Fetch Error :-S', err);
+//   });
+
+fetch('https://devapi.hauskey.com/public/city/nameList')
+  .then(
+    function(response) {
+      itemJsonArray = []; 
+      // Examine the text in the response
+      response.json().then(function(data) {
+        itemJsonArray = data.data.cityList;
+        //console.log(data.data.cityList);
+
+let tableBody = document.getElementById("mytable");
+                let str = "";
+                itemJsonArray.forEach((list) => {
+                   console.log(list);
+                    str += `
+                    <tr>
+                    <td>${list.id}</td> 
+                    <td>${list.cityName}</td>
+                      </tr>`; 
+                });
+                tableBody.innerHTML = str;
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
