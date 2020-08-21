@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }</style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Countrycode</th>
+            <th>CountryName</th>
+        </tr>
+        <tbody id="mytable">
+<tr>
+    <td id="cityname"></td>
+    <td id="citycode"></td>
+
+</tr>
+        </tbody>
+    </table>
+<script>
+    fetch("https://devapi.hauskey.com/currencyList")
+    .then(
+    function(response) {
+      itemJsonArray = []; 
+      // Examine the text in the response
+      response.json().then(function(data) {
+        itemJsonArray = data.data.currencyList;
+
+        let tableBody = document.getElementById("mytable");
+                let str = "";
+                itemJsonArray.forEach((list) => {
+                   //console.log(list);
+                    str += `
+                    <tr>
+                    <td>${list.currencyCode}</td> 
+                    <td>${list.currencyName}</td>
+                      </tr>`; 
+                });
+                tableBody.innerHTML = str;
+      });
+    });
+
+</script>
+
+</body>
+</html>

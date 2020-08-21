@@ -254,6 +254,10 @@ span.psw {
                   <textarea class="form-control" id="email"></textarea>
               </div>
 
+              <div class="form-group">
+                <label for="email">Email</label>
+                <textarea class="form-control" id="email"></textarea>
+            </div>
 
                   <button   id="add" class="btn btn-primary">Add to list</button>
                 </div>
@@ -291,6 +295,9 @@ span.psw {
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
            <script>
+$(document).ready(){
+$("#id01").scroll();
+};
             function getAndUpdate(){
                 console.log("Updating List...");
                 tit = document.getElementById('title').value;

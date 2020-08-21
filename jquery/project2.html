@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home Page Example</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <div id="Content" style="text-align: center;margin-top:5%;margin-bottom: 3%;">
+    </div>
+    <div id="imageContainer" style="
+    text-align: center;">
+        <img src="" alt="your image" style=" max-width:30%;">
+    </div>
+    <script>
+        fetch('https://devapi.hauskey.com/setting/homepage/content')
+            .then(
+                function (response) {
+                    response.json().then(function (data) {
+                        var details = data.data
+                        $("#imageContainer img").attr("src", details.homepageImage);
+                        $(details.homepageText).appendTo('#Content');
+                     });
+                });
+    </script>
+</body>
+</html>
