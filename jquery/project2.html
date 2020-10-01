@@ -16,6 +16,7 @@
         fetch('https://devapi.hauskey.com/setting/homepage/content')
             .then(
                 function (response) {
+                    console.log(response);
                     response.json().then(function (data) {
                         var details = data.data
                         $("#imageContainer img").attr("src", details.homepageImage);
